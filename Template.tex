@@ -1,0 +1,80 @@
+\documentclass[a4paper,11pt,oneside,openany,uplatex]{jsbook}
+
+%図表の個数などの設定．
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{4}
+\setcounter{totalnumber}{4}
+\setcounter{dbltopnumber}{3}
+
+\renewcommand{\topfraction}{.95}
+\renewcommand{\bottomfraction}{.90}
+\renewcommand{\textfraction}{.05}
+\renewcommand{\floatpagefraction}{.95}
+
+%使用するパッケージを記述．
+\usepackage{amsmath, amssymb} %複雑な数式などを打つときに使用．
+\usepackage{bm} %数式環境内で太字を使うときに便利．
+\usepackage{graphicx} %画像を挿入したり，テキストや図の拡大縮小・回転を行う．
+\usepackage{subfigure} %図を並べる（今はsubfigとかsubcaptionとかが推奨らしい．よく知らない）
+\usepackage{verbatim} %入力どおりの出力を行う．
+\usepackage{ascmac} %テキストを枠で囲んだりできるが，微小なズレがでたりする．
+\usepackage{makeidx} %索引を作成できる．
+\usepackage{dcolumn} %表の数値を小数点で桁を揃える．
+\usepackage{lscape} %図表を90度横に倒して配置する．
+\usepackage{setspace} %行間調整．
+
+%余白の設定．
+%\setlength{\textwidth}{150truemm}      % テキスト幅: 210-(30+30)=150mm
+%\setlength{\fullwidth}{\textwidth}     % ページ全体の幅
+%\setlength{\oddsidemargin}{30truemm}   % 左余白
+%\addtolength{\oddsidemargin}{-1truein} % 左位置デフォルトから-1inch
+%\setlength{\topmargin}{15truemm}       % 上余白
+%\setlength{\textheight}{242truemm}     % テキスト高さ: 297-(25+30)=242mm
+%\addtolength{\topmargin}{-1truein}     % 上位置デフォルトから-1inch
+\setlength{\textwidth}{\fullwidth}
+\setlength{\evensidemargin}{\oddsidemargin}
+\addtolength{\textwidth}{-5truemm}
+\addtolength{\oddsidemargin}{5truemm}
+
+\renewcommand{\labelenumi}{(\arabic{enumi}) } %enumerate環境を1. 2.の形式から(1) (2)の形式へ変更（文書全体）．
+
+\setcounter{tocdepth}{2} %項レベルまで目次に反映させるコマンド．
+
+\begin{document}
+
+
+\input{表紙} %「表紙.tex」というファイルを同じディレクトリ上においておくこと．
+%
+\frontmatter
+
+\tableofcontents
+
+ % 本文
+\mainmatter
+
+\include{Introduction}
+\include{Method}
+\include{Result}
+\include{Concludion}
+
+ %\backmatter
+%\chapter{参考文献}
+\bibliography{hoge} %hoge.bibから拡張子を外した名前
+\bibliographystyle{junsrt} %参考文献出力スタイル
+
+\include{Acknowledgments}
+
+
+%参考文献（bibtex不使用で，手動で入力する場合．字下げの形式は『社会学評論スタイルガイド』にしたがっている）
+%\def\bibindent{1.85em}
+%\begin{thebibliography}{99\kern\bibindent}
+%\makeatletter
+%\def\@biblabel#1{}
+%\let\old@bibitem\bibitem
+%\def\bibitem#1{\old@bibitem{#1}\leavevmode\kern-\bibindent}
+%\makeatother
+%\small
+%\bibitem{}
+%Granovetter, Mark. 1973. ``The Strength of Weak Ties." \textit{American Journal of Sociology} 78(6): 1360--80.
+%\end{thebibliography}
+\end{document}
